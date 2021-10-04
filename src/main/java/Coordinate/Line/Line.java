@@ -15,6 +15,7 @@ public class Line {
     public boolean isAvalibleLine(Line line) {
         return (0 < line.x && line.x <= 24) && (0 < line.y && line.y <= 24);
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

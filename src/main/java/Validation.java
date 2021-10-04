@@ -3,7 +3,7 @@ import Coordinate.Line.Line;
 import java.util.Arrays;
 
 public class Validation {
-    public static boolean isLine(String input) {
+    public static boolean isValidationLineInput(String input) {
         if (isNull(input)) {
             return false;
         }
@@ -24,5 +24,12 @@ public class Validation {
 
     private static boolean isInputContains(String input) {
         return input.contains("(") && input.contains(")") && input.contains(",");
+    }
+
+    public static Boolean isValidationLinesInput(String input) {
+        if (input.contains("-")) {
+            return true;
+        }
+        return false;
     }
 }
