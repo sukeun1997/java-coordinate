@@ -1,3 +1,7 @@
+import Fuel.Avante;
+import Fuel.K5;
+import Fuel.RentCompany;
+import Fuel.Sonata;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -15,11 +19,11 @@ public class RentCompanyTest {
         company.addCar(new K5(390));
 
         String report = company.generateReport();
-        String s = "Sonata : 15리터\n" +
-                "K5 : 20리터\n" +
-                "Sonata : 12리터\n" +
-                "Avante : 20리터\n" +
-                "K5 : 30리터\n";
+        String s = "Fuel.Sonata : 15리터\n" +
+                "Fuel.K5 : 20리터\n" +
+                "Fuel.Sonata : 12리터\n" +
+                "Fuel.Avante : 20리터\n" +
+                "Fuel.K5 : 30리터\n";
         assertThat(report).isEqualTo(s);
     }
 }

@@ -1,3 +1,5 @@
+package Fuel;
+
 public class Avante extends Car{
     private final int Tripdistance;
 
@@ -17,7 +19,7 @@ public class Avante extends Car{
 
     @Override
     String getName() {
-        return "Avante";
+        return "Fuel.Avante";
     }
     @Override
     public String toString() {

@@ -1,14 +1,15 @@
-public class Sonata extends Car {
+package Fuel;
 
+public class K5 extends Car {
     private final int Tripdistance;
 
-    public Sonata(int Tripdistance) {
+    public K5(int Tripdistance) {
         this.Tripdistance = Tripdistance;
     }
 
     @Override
     double getDistancePerLiter() {
-        return 10;
+        return 13;
     }
 
     @Override
@@ -18,8 +19,9 @@ public class Sonata extends Car {
 
     @Override
     String getName() {
-        return "Sonata";
+        return "Fuel.K5";
     }
+
     @Override
     public String toString() {
         return getName() + " : " + (int) getChargeQuantity() + "리터\n";

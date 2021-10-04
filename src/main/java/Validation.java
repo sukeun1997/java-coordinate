@@ -1,3 +1,5 @@
+import Coordinate.Line.Line;
+
 import java.util.Arrays;
 
 public class Validation {
@@ -6,10 +8,7 @@ public class Validation {
             return false;
         }
         input = input.trim();
-        if (!isInputContains(input)) {
-            return false;
-        }
-        if (isNoInput(input)) {
+        if (!isInputContains(input) || isNoInput(input)) {
             return false;
         }
         return true;
