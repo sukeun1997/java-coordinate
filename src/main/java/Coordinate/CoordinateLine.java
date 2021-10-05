@@ -1,6 +1,7 @@
-package Coordinate.Line;
+package Coordinate;
 
-import java.util.Arrays;
+import Coordinate.Model.Line;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -32,4 +33,7 @@ public class CoordinateLine {
         return Objects.hash(lineList);
     }
 
+    public double getDistance() {
+        return Math.sqrt(Math.pow(lineList.get(0).getX()-lineList.get(1).getX() ,2) + Math.pow(lineList.get(0).getY()-lineList.get(1).getY() ,2));
+    }
 }

@@ -1,5 +1,6 @@
-import Coordinate.Line.CoordinateLine;
-import Coordinate.Line.Line;
+import Coordinate.CoordinateLine;
+import Coordinate.Model.Line;
+import Coordinate.Model.Validation;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -9,7 +10,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.in;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CoordinateLineTest {
@@ -58,4 +58,13 @@ public class CoordinateLineTest {
         assertEquals(coordinateLine,new CoordinateLine(Arrays.asList(new Line(10,10), new Line(14,15))));
     }
 
+    @Test
+    void 좌표_2개_거리() {
+        String s = "(10,10)-(14,15)";
+        String[] Lines = s.split("-");
+        List<Line> list = new ArrayList<>();
+        Arrays.stream(Lines).forEach(input -> list.add(CoordinateLine.create(input)));
+        CoordinateLine coordinateLine = new CoordinateLine(list);
+        assertEquals(coordinateLine.getDistance(), 6.403124, 0.001);
+    }
 }

@@ -1,6 +1,4 @@
-import Coordinate.Line.Line;
-
-import java.util.Arrays;
+package Coordinate.Model;
 
 public class Validation {
     public static boolean isValidationLineInput(String input) {
