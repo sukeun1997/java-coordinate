@@ -24,6 +24,15 @@ public class Line {
         return y;
     }
 
+    public static Line create(String input) {
+        if(Validation.isValidationLineInput(input)) {
+            input = input.substring(1, input.length() - 1);
+            String[] Line = input.split(",");
+            return new Line(Integer.parseInt(Line[0]), Integer.parseInt(Line[1]));
+        }
+        return null;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -36,4 +45,5 @@ public class Line {
     public int hashCode() {
         return Objects.hash(x, y);
     }
+
 }

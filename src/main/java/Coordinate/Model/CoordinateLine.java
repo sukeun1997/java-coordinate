@@ -1,7 +1,7 @@
-package Coordinate;
+package Coordinate.Model;
 
-import Coordinate.Model.Line;
-
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -13,12 +13,13 @@ public class CoordinateLine {
         this.lineList = lineList;
     }
 
-    public static Line create(String input) {
-        input = input.substring(1, input.length() - 1);
-        String[] Line = input.split(",");
-        return new Line(Integer.parseInt(Line[0]),Integer.parseInt(Line[1]));
+    public double getDistance() {
+        return Math.sqrt(Math.pow(lineList.get(0).getX()-lineList.get(1).getX() ,2) + Math.pow(lineList.get(0).getY()-lineList.get(1).getY() ,2));
     }
 
+    public List<Line> getLineList() {
+        return lineList;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -33,7 +34,8 @@ public class CoordinateLine {
         return Objects.hash(lineList);
     }
 
-    public double getDistance() {
-        return Math.sqrt(Math.pow(lineList.get(0).getX()-lineList.get(1).getX() ,2) + Math.pow(lineList.get(0).getY()-lineList.get(1).getY() ,2));
+    @Override
+    public String toString() {
+        return "두 점 사이 거리는 "+getDistance();
     }
 }

@@ -1,4 +1,4 @@
-import Coordinate.CoordinateLine;
+import Coordinate.Model.CoordinateLine;
 import Coordinate.Model.Line;
 import Coordinate.Model.Validation;
 import org.junit.jupiter.api.Test;
@@ -30,7 +30,7 @@ public class CoordinateLineTest {
     @Test
     void 좌표_생성() {
         String s = "(10,10)";
-        assertThat(CoordinateLine.create(s)).isEqualTo(new Line(10, 10));
+        assertThat(Line.create(s)).isEqualTo(new Line(10, 10));
     }
 
     @ParameterizedTest
@@ -48,23 +48,23 @@ public class CoordinateLineTest {
         assertEquals(Validation.isValidationLinesInput(input), expected);
     }
 
-    @Test
-    void 좌표_2개_생성() {
+    private CoordinateLine createLines() {
         String s = "(10,10)-(14,15)";
         String[] Lines = s.split("-");
         List<Line> list = new ArrayList<>();
-        Arrays.stream(Lines).forEach(input -> list.add(CoordinateLine.create(input)));
-        CoordinateLine coordinateLine = new CoordinateLine(list);
+        Arrays.stream(Lines).forEach(input -> list.add(Line.create(input)));
+        return new CoordinateLine(list);
+    }
+
+    @Test
+    void 좌표_2개_생성() {
+        CoordinateLine coordinateLine = createLines();
         assertEquals(coordinateLine,new CoordinateLine(Arrays.asList(new Line(10,10), new Line(14,15))));
     }
 
     @Test
     void 좌표_2개_거리() {
-        String s = "(10,10)-(14,15)";
-        String[] Lines = s.split("-");
-        List<Line> list = new ArrayList<>();
-        Arrays.stream(Lines).forEach(input -> list.add(CoordinateLine.create(input)));
-        CoordinateLine coordinateLine = new CoordinateLine(list);
+        CoordinateLine coordinateLine = createLines();
         assertEquals(coordinateLine.getDistance(), 6.403124, 0.001);
     }
 }

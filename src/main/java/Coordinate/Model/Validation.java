@@ -1,15 +1,24 @@
 package Coordinate.Model;
 
 public class Validation {
+
+    private static final String ERROR_INVALID_COORDINATES = "올바르지 않은 입력값입니다.";
+
     public static boolean isValidationLineInput(String input) {
-        if (isNull(input)) {
-            return false;
+        try {
+
+            if (isNull(input)) {
+                throw new IllegalArgumentException(ERROR_INVALID_COORDINATES);
+            }
+            input = input.trim();
+            if (!isInputContains(input) || isNoInput(input)) {
+                throw new IllegalArgumentException(ERROR_INVALID_COORDINATES);
+            }
+            return true;
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
         }
-        input = input.trim();
-        if (!isInputContains(input) || isNoInput(input)) {
             return false;
-        }
-        return true;
     }
 
     private static boolean isNoInput(String input) {
