@@ -57,4 +57,5 @@ public class CoordinateLineTest {
         CoordinateLine coordinateLine = new CoordinateLine(list);
         assertEquals(coordinateLine,new CoordinateLine(Arrays.asList(new Line(10,10), new Line(14,15))));
     }
+
 }

@@ -31,4 +31,5 @@ public class CoordinateLine {
     public int hashCode() {
         return Objects.hash(lineList);
     }
+
 }
