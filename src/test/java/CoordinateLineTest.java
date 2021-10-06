@@ -1,14 +1,10 @@
-import Coordinate.Model.Line;
-import Coordinate.Model.Point;
-import Coordinate.Model.Validation;
+import Coordinate.Model.*;
 import View.InputView;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -38,13 +34,25 @@ public class CoordinateLineTest {
     @Test
     void 좌표_생성_확인() {
         String s = "(10,10)";
-        assertThat(InputView.generatePoint(s)).isEqualTo(new Point(10,10));
+        assertThat(InputView.generatePoints(s).stream().findFirst().get()).isEqualTo(new Point(10,10));
     }
 
     @Test
     void 좌표_2개이상_생성() {
         String s = "(10,10)-(22,10)-(22,18)-(10,18)";
         assertThat(InputView.generatePoints(s)).isEqualTo(Arrays.asList(new Point(10, 10), new Point(22, 10), new Point(22, 18), new Point(10, 18)));
+    }
 
+    @Test
+    void FigureFactory_Line_객체_생성() {
+        String s = "(10,10)-(14,15)";
+        FigureFactory.create(InputView.generatePoints(s));
+    }
+
+    @Test
+    void 선_길이() {
+        String s = "(10,10)-(14,15)";
+        Figure line = FigureFactory.create(InputView.generatePoints(s));
+        assertEquals(line.area(), 6.403124, 0.001);
     }
 }

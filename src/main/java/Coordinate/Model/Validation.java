@@ -20,12 +20,12 @@ public class Validation {
 
         try {
 
-            Pattern pattern = Pattern.compile("(\\([0-9]{1,2},[0-9]{1,2}\\))(-(\\([0-9]{1,2},[0-9]{1,2}\\))){0,3}");
-            Matcher matcher = pattern.matcher(input);
-
             if (isNull(input)) {
                 throw new IllegalArgumentException(ERROR_INVALID_COORDINATES);
             }
+            Pattern pattern = Pattern.compile("(\\([0-9]{1,2},[0-9]{1,2}\\))(-(\\([0-9]{1,2},[0-9]{1,2}\\))){0,3}");
+            Matcher matcher = pattern.matcher(input);
+
             if (!matcher.matches() || isNoInput(input)) {
                 throw new IllegalArgumentException(ERROR_INVALID_COORDINATES);
             }

@@ -1,5 +1,6 @@
 package View;
 
+import Coordinate.Model.Figure;
 import Coordinate.Model.FigureFactory;
 import Coordinate.Model.Point;
 import Coordinate.Model.Validation;
@@ -14,19 +15,19 @@ public class InputView {
 
     private static final String ERROR_INVALID_COORDINATES = "올바르지 않은 입력값입니다.";
 
-    public static void input() {
+    public static Figure input() {
         System.out.println("좌표를 입력하세요.");
         Scanner sc = new Scanner(System.in);
-        create(sc.nextLine());
+        return create(sc.nextLine());
     }
 
-    private static void create(String line) {
+    private static Figure create(String line) {
 
         Validation.isValidationLineInput(line);
-        generatePoint(line);
+        return  FigureFactory.create(generatePoints(line));
     }
 
-    public static Point generatePoint(String line) {
+    private static Point generatePoint(String line) {
 
         Pattern pattern = Pattern.compile("\\(([0-9]{1,2}),([0-9]{1,2})\\)");
         Matcher matcher = pattern.matcher(line);

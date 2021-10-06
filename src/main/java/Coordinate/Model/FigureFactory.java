@@ -12,8 +12,14 @@ public class FigureFactory {
     private static final int FIGURE_TRIANGLE = 3;
     private static final Map<Integer, Function<List<Point>, Figure>> classifer = new HashMap<>();
 
-//    static {
-//        classifer.put(FIGURE_LINE, Line);
-//    }
+    static {
+        classifer.put(FIGURE_LINE, Line::new);
+//        classifer.put(FIGURE_RECT, Rect::new);
+    }
 
+
+
+    public static Figure create(List<Point> points) {
+        return classifer.get(points.size()).apply(points);
+    }
 }

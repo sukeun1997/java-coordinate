@@ -3,8 +3,8 @@ package Coordinate.Model;
 import java.util.Objects;
 
 public class Point {
-    private final double x;
 
+    private final double x;
     private final double y;
 
     public Point(int x, int y) {
@@ -12,6 +12,21 @@ public class Point {
         this.y = y;
     }
 
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public double getSqrt(Point point) {
+        return Math.sqrt(getPow(point));
+    }
+
+    public double getPow(Point point) {
+        return Math.pow((this.x - point.x), 2) + Math.pow((this.y - point.y), 2);
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
