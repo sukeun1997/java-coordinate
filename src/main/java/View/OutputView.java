@@ -1,8 +1,5 @@
 package View;
 
-import Coordinate.Model.CoordinateLine;
-import Coordinate.Model.Line;
-
 public class OutputView {
     private static final String FOUR_BLANK = "    ";
     private static final String VERTICAL_AXIS = "|";
@@ -15,32 +12,32 @@ public class OutputView {
     static StringBuilder stringBuilder = new StringBuilder();
 
 
-    public static void Init(CoordinateLine lineS) {
-        showYLine(lineS);
+    public static void Init() {
+        showYLine();
         ShowXLine();
         showHorizontalNumbers();
         System.out.println(stringBuilder);
     }
 
-    private static void showYLine(CoordinateLine lineS) {
+    private static void showYLine() {
         for (int y = Max; y >= Min; y--) {
             showAxisNumber(y);
             AppendText(VERTICAL_AXIS);
-            showPoirnts(lineS, y);
+//            showPoirnts(lineS, y);
             AppendText(EMPTY_LINE);
         }
     }
 
-    private static void showPoirnts(CoordinateLine lineS, int y) {
-        for (Line line : lineS.getLineList()) {
-            if (line.getY() == y) {
-                for (int x = Min; x < line.getX(); x++) {
-                    stringBuilder.append(FOUR_BLANK);
-                }
-                stringBuilder.append(MARK_OF_POINT);
-            }
-        }
-    }
+//    private static void showPoirnts(CoordinateLine lineS, int y) {
+//        for (Line line : lineS.getLineList()) {
+//            if (line.getY() == y) {
+//                for (int x = Min; x < line.getX(); x++) {
+//                    stringBuilder.append(FOUR_BLANK);
+//                }
+//                stringBuilder.append(MARK_OF_POINT);
+//            }
+//        }
+//    }
 
     private static void ShowXLine() {
         AppendText(FOUR_BLANK+ORIGIN);

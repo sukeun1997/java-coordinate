@@ -1,25 +1,11 @@
 package Coordinate.Model;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Validation {
 
     private static final String ERROR_INVALID_COORDINATES = "올바르지 않은 입력값입니다.";
-
-    public static boolean isValidationLineInput(String input) {
-        try {
-
-            if (isNull(input)) {
-                throw new IllegalArgumentException(ERROR_INVALID_COORDINATES);
-            }
-            input = input.trim();
-            if (!isInputContains(input) || isNoInput(input)) {
-                throw new IllegalArgumentException(ERROR_INVALID_COORDINATES);
-            }
-            return true;
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
-            return false;
-    }
 
     private static boolean isNoInput(String input) {
         return input.isBlank() || input.isEmpty();
@@ -29,13 +15,24 @@ public class Validation {
         return input == null;
     }
 
-    private static boolean isInputContains(String input) {
-        return input.contains("(") && input.contains(")") && input.contains(",");
-    }
 
-    public static Boolean isValidationLinesInput(String input) {
-        if (input.contains("-")) {
+    public static boolean isValidationLineInput(String input) {
+
+        try {
+
+            Pattern pattern = Pattern.compile("(\\([0-9]{1,2},[0-9]{1,2}\\))(-(\\([0-9]{1,2},[0-9]{1,2}\\))){0,3}");
+            Matcher matcher = pattern.matcher(input);
+
+            if (isNull(input)) {
+                throw new IllegalArgumentException(ERROR_INVALID_COORDINATES);
+            }
+            if (!matcher.matches() || isNoInput(input)) {
+                throw new IllegalArgumentException(ERROR_INVALID_COORDINATES);
+            }
+
             return true;
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
         }
         return false;
     }
