@@ -55,4 +55,11 @@ public class CoordinateLineTest {
         Figure line = FigureFactory.create(InputView.generatePoints(s));
         assertEquals(line.area(), 6.403124, 0.001);
     }
+
+    @Test
+    void 사각형_넓이() {
+        String s = "(10,10)-(22,10)-(22,18)-(10,18)";
+        Figure rect = FigureFactory.create(InputView.generatePoints(s));
+        assertEquals(rect.area(), 96);
+    }
 }

@@ -14,7 +14,7 @@ public class FigureFactory {
 
     static {
         classifer.put(FIGURE_LINE, Line::new);
-//        classifer.put(FIGURE_RECT, Rect::new);
+        classifer.put(FIGURE_RECT, Rect::new);
     }
 
 

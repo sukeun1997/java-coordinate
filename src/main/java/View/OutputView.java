@@ -3,6 +3,10 @@ package View;
 import Coordinate.Model.Figure;
 import Coordinate.Model.Point;
 
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class OutputView {
     private static final String FOUR_BLANK = "    ";
     private static final String VERTICAL_AXIS = "|";
@@ -12,14 +16,12 @@ public class OutputView {
     private static final String EMPTY_LINE = "\n";
     public static final int Max = 24;
     public static final int Min = 1;
-    static StringBuilder stringBuilder = new StringBuilder();
 
 
     public static void Init(Figure points) {
         showYLine(points);
         ShowXLine();
         showHorizontalNumbers();
-        System.out.println(stringBuilder);
     }
 
     private static void showYLine(Figure points) {
@@ -31,14 +33,13 @@ public class OutputView {
         }
     }
 
-    private static void showPoirnts(Figure points, int y) {
-        for (Point line : points.getPoints()) {
-            if (line.getY() == y) {
-                for (int x = Min; x < line.getX(); x++) {
-                    stringBuilder.append(FOUR_BLANK);
-                }
-                stringBuilder.append(MARK_OF_POINT);
+    private static void showPoirnts(Figure figure, int y) {
+        for (int x = Min; x <= Max; x++) {
+            if (figure.hasPoint(x, y)) {
+                System.out.print(String.format("%4s", MARK_OF_POINT));
+                continue;
             }
+            System.out.print(FOUR_BLANK);
         }
     }
 
@@ -65,8 +66,8 @@ public class OutputView {
         AppendText(EMPTY_LINE);
     }
 
-    private static StringBuilder AppendText(String s) {
-        return stringBuilder.append(s);
+    private static void AppendText(String s) {
+        System.out.print(s);
     }
 
 }

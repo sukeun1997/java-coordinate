@@ -4,19 +4,19 @@ import java.util.Objects;
 
 public class Point {
 
-    private final double x;
-    private final double y;
+    private final int x;
+    private final int y;
 
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public double getX() {
+    public int getX() {
         return x;
     }
 
-    public double getY() {
+    public int getY() {
         return y;
     }
 
@@ -27,6 +27,8 @@ public class Point {
     public double getPow(Point point) {
         return Math.pow((this.x - point.x), 2) + Math.pow((this.y - point.y), 2);
     }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

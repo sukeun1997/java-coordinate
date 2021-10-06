@@ -15,4 +15,8 @@ public abstract class AbstractFigure implements Figure{
         return points;
     }
 
+    @Override
+    public boolean hasPoint(int x, int y) {
+        return points.stream().anyMatch(point -> point.getX() == x && point.getY() == y);
+    }
 }
