@@ -1,4 +1,4 @@
-package View;
+package Coordinate.View;
 
 import Coordinate.Model.Figure;
 import Coordinate.Model.FigureFactory;

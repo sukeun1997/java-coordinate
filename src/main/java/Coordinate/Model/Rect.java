@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class Rect extends AbstractFigure {
 
-    private final static String AREA_INFO = "사각형 넓이는";
+    private final static String AREA_INFO = "사각형 넓이는 ";
 
     Rect(List<Point> points) {
         super(points);

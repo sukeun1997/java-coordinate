@@ -1,11 +1,6 @@
-package View;
+package Coordinate.View;
 
 import Coordinate.Model.Figure;
-import Coordinate.Model.Point;
-
-import java.util.Comparator;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class OutputView {
     private static final String FOUR_BLANK = "    ";

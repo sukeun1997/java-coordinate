@@ -1,5 +1,5 @@
 import Coordinate.Model.*;
-import View.InputView;
+import Coordinate.View.InputView;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -61,5 +61,27 @@ public class CoordinateLineTest {
         String s = "(10,10)-(22,10)-(22,18)-(10,18)";
         Figure rect = FigureFactory.create(InputView.generatePoints(s));
         assertEquals(rect.area(), 96);
+    }
+
+    @Test
+    void 삼각형_생성() {
+        String s = "(10,10)-(14,15)-(20,8)";
+        Figure tri = FigureFactory.create(InputView.generatePoints(s));
+        assertEquals(tri.getPoints(), new TRIANGLE(Arrays.asList(new Point(10,10), new Point(14,15), new Point(20,8))).getPoints());
+    }
+
+    @Test
+    void 삼각형_세_변의_길이() {
+        String s = "(10,10)-(14,15)-(20,8)";
+        TRIANGLE tri = (TRIANGLE) FigureFactory.create(InputView.generatePoints(s));
+        assertEquals(tri.ConvertToLine(tri.getPoints()),Arrays.asList(Math.sqrt(16+25),Math.sqrt(36+49), Math.sqrt(100+4)));
+        System.out.println(tri.ConvertToLine(tri.getPoints()));
+    }
+
+    @Test
+    void 삼각형_넓이() {
+        String s = "(10,10)-(14,15)-(20,8)";
+        TRIANGLE tri = (TRIANGLE) FigureFactory.create(InputView.generatePoints(s));
+        assertEquals(tri.area(), 29);
     }
 }

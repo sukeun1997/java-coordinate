@@ -1,8 +1,8 @@
 package Coordinate.Controller;
 
 import Coordinate.Model.Figure;
-import View.InputView;
-import View.OutputView;
+import Coordinate.View.InputView;
+import Coordinate.View.OutputView;
 
 public class CoordinateCalculator {
     public static void run() {
