@@ -1,9 +1,12 @@
 package coordinate.Controller;
 
 import coordinate.View.InputView;
+import coordinate.View.OutputView;
 
 public class CoordinateCirculator {
     public static void run() {
-        InputView.Input();
+        OutputView.init();
+//        InputView.Input();
+
     }
 }
