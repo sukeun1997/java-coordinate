@@ -12,6 +12,10 @@ public class Point {
         this.y = y;
     }
 
+    public static Point of(int x, int y) {
+        return new Point(x, y);
+    }
+
 
     @Override
     public boolean equals(Object o) {
