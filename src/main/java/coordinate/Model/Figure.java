@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface Figure {
     List<Point> getPoints();
-    void hasPoint();
+    boolean hasPoint(int x, int y);
     double area();
     String areaInfo();
 }

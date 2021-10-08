@@ -19,7 +19,7 @@ public class LineTest {
     @BeforeEach
     void setUp() {
         s = "(10,10)-(14,15)";
-        line = InputView.createPoints(s);
+        line = (Line) InputView.createPoints(s);
     }
 
     @Test
@@ -30,7 +30,7 @@ public class LineTest {
     @Test
     void Line_객체_유효성_검사() {
          s = "(10,10)-(14,15)-(10,10)";
-        assertThatThrownBy(() -> InputView.createPoints(s)).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("선");
+        assertThatThrownBy(() -> InputView.createPoints(s)).isInstanceOf(IllegalArgumentException.class).hasMessageContaining("옳바른");
     }
 
     @Test

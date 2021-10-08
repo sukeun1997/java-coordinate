@@ -1,5 +1,6 @@
 package coordinate.View;
 
+import coordinate.Model.Figure;
 import coordinate.Model.Line;
 import coordinate.Model.Point;
 
@@ -13,7 +14,7 @@ public class OutputView {
     private static final String LINE = "----";
     private static final String DOT = ".";
 
-    public static void init(Line line) {
+    public static void init(Figure line) {
         for (int i = End; i > Start; i--) {
             ShowVertical(i);
             ShowPoint(line, i);
@@ -28,7 +29,7 @@ public class OutputView {
         Print(EMPTY);
     }
 
-    private static void ShowPoint(Line line, int y) {
+    private static void ShowPoint(Figure line, int y) {
             for (int x = 1; x <= End ; x++) {
                 if (line.hasPoint(x,y)) {
                     Print(DOT);
