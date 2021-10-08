@@ -1,6 +1,7 @@
 package coordinate.View;
 
 
+import coordinate.Model.Line;
 import coordinate.Model.Point;
 
 import javax.swing.table.TableRowSorter;
@@ -16,7 +17,7 @@ public class InputView {
     private static final String ERROR_MESSAGE = "옳바르지 않은 좌표 입니다.";
     private static final String ERROR_NUMBER = "24 이하의 숫자를 입력 해 주세요";
 
-    public static List<Point> Input() {
+    public static Line Input() {
         System.out.println("좌표를 입력하세요");
         Scanner sc = new Scanner(System.in);
         String lines = sc.nextLine();
@@ -24,7 +25,7 @@ public class InputView {
         return createPoints(lines);
     }
 
-    public static List<Point> createPoints(String Lines) {
+    public static Line createPoints(String Lines) {
         Pattern pattern = Pattern.compile("(\\([0-9]{1,2},[0-9]{1,2}\\))(-(\\([0-9]{1,2},[0-9]{1,2}\\))){0,3}");
         Matcher matcher = pattern.matcher(Lines.trim());
 
@@ -35,15 +36,16 @@ public class InputView {
         return createPoint(Lines);
     }
 
-    private static List<Point> createPoint(String line) {
+    private static Line createPoint(String coordinate) {
         Pattern pattern = Pattern.compile("\\(([0-9]{1,2}),([0-9]{1,2})\\)");
-        Matcher matcher = pattern.matcher(line);
+        Matcher matcher = pattern.matcher(coordinate);
         List<Point> points = new ArrayList<>();
 
         while (matcher.find()) {
             points.add(new Point(Integer.parseInt(matcher.group(1)), Integer.parseInt(matcher.group(2))));
         }
-        return points;
+        Line line = new Line(points);
+        return line;
     }
 
     private static void isValidNumber(String lines) {

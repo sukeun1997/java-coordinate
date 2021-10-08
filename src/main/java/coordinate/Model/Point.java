@@ -16,6 +16,17 @@ public class Point {
         return new Point(x, y);
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public boolean isSame(int x ,int y) {
+        return x == getX() && y == getY();
+    }
 
     @Override
     public boolean equals(Object o) {
