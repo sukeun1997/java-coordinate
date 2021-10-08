@@ -6,6 +6,7 @@ import java.util.Objects;
 public class Line {
 
     private static final String ERROR_MESSAGE = "선이 아닙니다.";
+    private static final String LINE_MESSAGE = "두 점 사이 거리는 ";
     private final List<Point> points;
 
     public Line(List<Point> points) {
@@ -31,4 +32,13 @@ public class Line {
     public int hashCode() {
         return Objects.hash(points);
     }
+
+    public double area() {
+        return points.get(0).sqrt(points.get(1));
+    }
+
+    public String areaInfo() {
+        return LINE_MESSAGE + area();
+    }
+
 }

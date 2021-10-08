@@ -29,4 +29,12 @@ public class Point {
     public int hashCode() {
         return Objects.hash(x, y);
     }
+
+    public double sqrt(Point point) {
+        return Math.sqrt(point.pow(x,point.x)+point.pow(y,point.y));
+    }
+
+    private double pow(int a, int b) {
+        return Math.pow(a - b, 2);
+    }
 }
