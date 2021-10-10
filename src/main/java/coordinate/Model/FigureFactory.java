@@ -11,10 +11,12 @@ public class FigureFactory {
 
     private static final Integer FIGURE_RECTANGLE = 4;
     private static final Integer FIGURE_LINE = 2;
+    private static final Integer FOGURE_TRIANGLE = 3;
 
     static {
         classifer.put(FIGURE_LINE, Line::new);
         classifer.put(FIGURE_RECTANGLE, Rectangle::new);
+        classifer.put(FOGURE_TRIANGLE, Triangle::new);
     }
 
     public static Figure create(List<Point> points) {
