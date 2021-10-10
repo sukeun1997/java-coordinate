@@ -7,6 +7,8 @@ import java.util.List;
 public class Triangle extends AbstractFigure{
 
 
+    private static final String TRIANGLE_MESSAGE = "삼각형의 넓이는 ";
+
     Triangle(List<Point> points) {
         super(points);
     }
@@ -28,7 +30,7 @@ public class Triangle extends AbstractFigure{
 
     @Override
     public String areaInfo() {
-        return null;
+        return TRIANGLE_MESSAGE + area();
     }
 
     public ArrayList<Double> ConvertToLine(List<Point> points) {

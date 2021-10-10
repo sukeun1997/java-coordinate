@@ -29,4 +29,5 @@ public class TriangleTest {
         Triangle triangle = (Triangle) tri;
         assertThat(triangle.area()).isEqualTo(29);
     }
+
 }
