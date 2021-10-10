@@ -13,7 +13,17 @@ public class Triangle extends AbstractFigure{
 
     @Override
     public double area() {
-        return 0;
+        ArrayList<Double> linelist = ConvertToLine(getPoints());
+        double s = getLineS();
+        double a = linelist.get(0);
+        double b = linelist.get(1);
+        double c = linelist.get(2);
+        return Math.round(Math.sqrt(s * (s - a) * (s - b) * (s - c)));
+    }
+
+    private double getLineS() {
+        return ConvertToLine(getPoints()).stream().mapToDouble(n -> n).sum() / 2;
+
     }
 
     @Override

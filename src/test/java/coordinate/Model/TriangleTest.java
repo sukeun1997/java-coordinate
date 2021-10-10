@@ -27,7 +27,6 @@ public class TriangleTest {
     @Test
     void 삼각형_넓이() {
         Triangle triangle = (Triangle) tri;
-
         assertThat(triangle.area()).isEqualTo(29);
     }
 }
