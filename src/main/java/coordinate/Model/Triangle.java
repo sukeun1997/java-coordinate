@@ -1,5 +1,7 @@
 package coordinate.Model;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Triangle extends AbstractFigure{
@@ -17,5 +19,13 @@ public class Triangle extends AbstractFigure{
     @Override
     public String areaInfo() {
         return null;
+    }
+
+    public ArrayList<Double> ConvertToLine(List<Point> points) {
+        ArrayList<Double> LineList = new ArrayList<>();
+        LineList.add(points.get(0).sqrt(points.get(1)));
+        LineList.add(points.get(1).sqrt(points.get(2)));
+        LineList.add(points.get(2).sqrt(points.get(0)));
+        return LineList;
     }
 }
